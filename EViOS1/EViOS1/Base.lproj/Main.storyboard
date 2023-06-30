@@ -19,16 +19,33 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_image" translatesAutoresizingMaskIntoConstraints="NO" id="UEB-56-yiy">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_icon" translatesAutoresizingMaskIntoConstraints="NO" id="3bU-D8-bQZ">
+                                <rect key="frame" x="76" y="71" width="240" height="230"/>
+                                <color key="backgroundColor" red="0.19827078391581088" green="0.40089400773195871" blue="0.015281966874129183" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="230" id="Pfh-Bj-LNg"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="UEB-56-yiy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0gF-6t-fNE"/>
                             <constraint firstItem="UEB-56-yiy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AcS-sN-aIh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3bU-D8-bQZ" secondAttribute="trailing" constant="77" id="Dbn-qg-t2G"/>
+                            <constraint firstItem="3bU-D8-bQZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="76" id="EoH-bc-Dmf"/>
                             <constraint firstItem="UEB-56-yiy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="QhO-nb-TlK"/>
                             <constraint firstAttribute="bottom" secondItem="UEB-56-yiy" secondAttribute="bottom" id="Rte-TL-1LP"/>
+                            <constraint firstItem="3bU-D8-bQZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="Zf6-L6-tcJ"/>
+                            <constraint firstItem="3bU-D8-bQZ" firstAttribute="width" secondItem="UEB-56-yiy" secondAttribute="width" multiplier="0.4" priority="1" id="y2m-y0-FHi"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="profilePic" destination="3bU-D8-bQZ" id="0TR-5b-XSg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -37,6 +54,7 @@
     </scenes>
     <resources>
         <image name="background_image" width="853" height="1280"/>
+        <image name="user_icon" width="200" height="200"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
