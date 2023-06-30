@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         wheel.startAnimating()
         guard let login = loginField.text else{return}
         guard let password = passwordField.text else {return}
-        if !login.contains("@") && password.isEmpty && login.isEmpty && password.count < 4{
+        if !login.contains("@") || password.isEmpty || login.isEmpty || password.count < 4{
             let alert = UIAlertController(title: "ERROR !", message: "Une condition n'est pas respectée ", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in
                 self.wheel.alpha = 0
