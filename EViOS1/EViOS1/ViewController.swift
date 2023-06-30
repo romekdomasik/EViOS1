@@ -10,6 +10,9 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet var profilePic: UIImageView!
+    @IBOutlet var welcomeLabel: UILabel!
+    @IBOutlet var loginField: UITextField!
+    @IBOutlet var passwordField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
