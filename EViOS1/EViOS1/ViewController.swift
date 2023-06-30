@@ -32,15 +32,16 @@ class ViewController: UIViewController {
         eye.isUserInteractionEnabled = true
         eye.addGestureRecognizer(tapGestureRecognizer)
         wheel.alpha = 0
+        passwordField.isSecureTextEntry = true
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
-        if eye.image == UIImage(named: "eye_on_icon"){
-            eye.image = UIImage(named: "eye_off")
-            passwordField.isSecureTextEntry = true
-        } else{
+        if eye.image == UIImage(named: "eye_off"){
             eye.image = UIImage(named: "eye_on_icon")
             passwordField.isSecureTextEntry = false
+        } else{
+            eye.image = UIImage(named: "eye_off")
+            passwordField.isSecureTextEntry = true
         }
     }
     
