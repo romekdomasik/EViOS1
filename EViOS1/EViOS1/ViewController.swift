@@ -41,6 +41,31 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func pressLoginButton(){
+        guard let login = loginField.text else{return}
+        guard let password = passwordField.text else {return}
+        if login.contains("@") && !password.isEmpty && !login.isEmpty && password.count >= 4{
+            if btnCoulissant.isOn == true{
+                let alert = UIAlertController(title: "Bienvenue \(loginField.text ?? "unknown")", message: "Vous vous êtes inscrits à la newsletter !", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Merci !", style: .default))
+                present(alert, animated: true, completion: nil)
+                
+            } else{
+                let alert = UIAlertController(title: "Bienvenue \(loginField.text ?? "unknown")", message: "Vous ne vous êtes pas inscrits à la newsletter !", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Merci !", style: .default))
+                present(alert, animated: true, completion: nil)
+            }
+        } else{
+            let alert = UIAlertController(title: "ERROR !", message: "Une condition n'est pas respectée ", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true, completion: nil)
+        }
+        
+            
+        
+    }
+
+    
     
     
 
