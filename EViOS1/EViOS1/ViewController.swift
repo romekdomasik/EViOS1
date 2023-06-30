@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet var labelInscription: UILabel!
     @IBOutlet var btnCoulissant: UISwitch!
     @IBOutlet var btnLogin: UIButton!
+    @IBOutlet var wheel: UIActivityIndicatorView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,7 @@ class ViewController: UIViewController {
         btnCoulissant.isOn = false
         eye.isUserInteractionEnabled = true
         eye.addGestureRecognizer(tapGestureRecognizer)
+        wheel.alpha = 0
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
@@ -41,24 +44,48 @@ class ViewController: UIViewController {
         }
     }
     
+    
     @IBAction func pressLoginButton(){
+        btnCoulissant.alpha = 0
+        wheel.alpha = 1
+        wheel.startAnimating()
         guard let login = loginField.text else{return}
         guard let password = passwordField.text else {return}
-        if login.contains("@") && !password.isEmpty && !login.isEmpty && password.count >= 4{
-            if btnCoulissant.isOn == true{
-                let alert = UIAlertController(title: "Bienvenue \(loginField.text ?? "unknown")", message: "Vous vous êtes inscrits à la newsletter !", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Merci !", style: .default))
-                present(alert, animated: true, completion: nil)
-                
-            } else{
-                let alert = UIAlertController(title: "Bienvenue \(loginField.text ?? "unknown")", message: "Vous ne vous êtes pas inscrits à la newsletter !", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Merci !", style: .default))
-                present(alert, animated: true, completion: nil)
+        makeStuff()
+
+        
+        func makeStuff(){
+            DispatchQueue.global(qos: .default).async{
+                sleep(3)
+                DispatchQueue.main.async{ [self] in
+                    if login.contains("@") && !password.isEmpty && !login.isEmpty && password.count >= 4{
+                        if self.btnCoulissant.isOn == true{
+                            let alert = UIAlertController(title: "Bienvenue \(loginField.text ?? "unknown")", message: "Vous vous êtes inscrits à la newsletter !", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "Merci !", style: .default, handler: {action in
+                                self.wheel.alpha = 0
+                                self.wheel.stopAnimating()
+                                self.btnCoulissant.alpha = 1
+                            }))
+                            present(alert, animated: true, completion: nil)
+                            
+                        } else{
+                            let alert = UIAlertController(title: "Bienvenue \(loginField.text ?? "unknown")", message: "Vous ne vous êtes pas inscrits à la newsletter !", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "Merci !", style: .default, handler: {action in
+                                self.wheel.alpha = 0
+                                self.btnCoulissant.alpha = 1
+                            }))
+                            present(alert, animated: true, completion: nil)
+                        }
+                    } else{
+                        let alert = UIAlertController(title: "ERROR !", message: "Une condition n'est pas respectée ", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in
+                            self.wheel.alpha = 0
+                            self.btnCoulissant.alpha = 1
+                        }))
+                        present(alert, animated: true, completion: nil)
+                    }
+                }
             }
-        } else{
-            let alert = UIAlertController(title: "ERROR !", message: "Une condition n'est pas respectée ", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-            present(alert, animated: true, completion: nil)
         }
         
             
