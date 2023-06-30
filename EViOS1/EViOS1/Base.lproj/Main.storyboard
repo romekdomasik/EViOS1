@@ -86,14 +86,19 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yG4-N2-TWm">
-                                                <rect key="frame" x="86.333333333333329" y="28.666666666666629" width="50.999999999999986" height="31"/>
+                                                <rect key="frame" x="86.000000000000014" y="28.666666666666629" width="51.333333333333329" height="31"/>
                                             </switch>
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="qMM-5R-FEr">
-                                                <rect key="frame" x="100.66666666666667" y="66.666666666666629" width="20" height="20"/>
+                                                <rect key="frame" x="101.00000000000001" y="66.666666666666629" width="19.666666666666671" height="20"/>
                                             </activityIndicatorView>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="qMM-5R-FEr" firstAttribute="top" secondItem="yG4-N2-TWm" secondAttribute="bottom" constant="7" id="O5V-Oh-erT"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="P7g-qQ-tJ5"/>
+                                            <constraint firstItem="yG4-N2-TWm" firstAttribute="leading" secondItem="4mL-Xp-RhU" secondAttribute="leading" constant="86.329999999999998" id="bMe-2i-nYX"/>
+                                            <constraint firstAttribute="trailing" secondItem="qMM-5R-FEr" secondAttribute="trailing" constant="101" id="uRm-X0-OTc"/>
+                                            <constraint firstAttribute="bottom" secondItem="qMM-5R-FEr" secondAttribute="bottom" id="vA3-ie-TSi"/>
+                                            <constraint firstItem="yG4-N2-TWm" firstAttribute="top" secondItem="spp-i9-98r" secondAttribute="bottom" constant="7" id="xky-S4-pgv"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -122,8 +127,8 @@
                             <constraint firstItem="UEB-56-yiy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="GfR-oE-dAb"/>
                             <constraint firstItem="UEB-56-yiy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="QhO-nb-TlK"/>
                             <constraint firstAttribute="bottom" secondItem="UEB-56-yiy" secondAttribute="bottom" id="Rte-TL-1LP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PSL-av-kY6" secondAttribute="bottom" constant="6.6699999999999999" id="Wvq-o3-BV2"/>
                             <constraint firstItem="3bU-D8-bQZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="Zf6-L6-tcJ"/>
-                            <constraint firstItem="PSL-av-kY6" firstAttribute="top" secondItem="5XU-zl-kUn" secondAttribute="bottom" constant="298.67000000000002" id="dK4-Dc-Z2a"/>
                             <constraint firstItem="UEB-56-yiy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fpJ-5v-RqJ"/>
                             <constraint firstItem="PSL-av-kY6" firstAttribute="width" secondItem="UEB-56-yiy" secondAttribute="width" multiplier="0.6" id="m6a-RI-rXA"/>
                             <constraint firstItem="5XU-zl-kUn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="vUB-eq-WDG"/>
